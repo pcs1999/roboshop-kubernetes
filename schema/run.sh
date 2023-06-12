@@ -14,5 +14,5 @@ if [ $SCHEMA_TYPE == "mongodb" ] ; then
     mongo --ssl --host ${DOCUMENTDB_ENDPOINT} --sslCAFile /app/rds-combined-ca-bundle.pem --username ${DOCUMENTDB_USER} --password ${DOCUMENTDB_PASS} < /code/schema/${COMPONENT}.js
 
 elif [ $SCHEMA_TYPE == "mysql" ] ; then
-  echo
+  mysql -h${DB_HOST} -u${DB_USER} -p${DB_PASS} < /code/schema/${COMPONENT}.sql
 fi

@@ -11,7 +11,7 @@ cd /code/schema
 if [ $SCHEMA_TYPE == "mongodb" ] ; then
     curl -L -o  https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.pem
 
-    mongo --ssl --host ${DOCUMENTDB_ENDPOINT} --sslCAFile /app/rds-combined-ca-bundle.pem --username ${DOCUMENTDB_USER} --password ${DOCUMENTDB_PASS} < /code/schema/${COMPONENT}.js
+    mongo --ssl --host ${DOCDB_ENDPOINT} --sslCAFile /app/rds-combined-ca-bundle.pem --username ${DOCDB_USER} --password ${DOCDB_PASS} < /code/schema/${COMPONENT}.js
 
 elif [ $SCHEMA_TYPE == "mysql" ] ; then
   mysql -h${DB_HOST} -u${DB_USER} -p${DB_PASS} < /code/schema/${COMPONENT}.sql
